@@ -29,6 +29,7 @@ function isEmptyObject(obj) {
 	return !Object.keys(obj).length;
 }
 
+
 mongoose.connection.once('open', function() {
 	var greeting;
 	Greeting.count({}, function(err, c) {
@@ -36,9 +37,6 @@ mongoose.connection.once('open', function() {
 	});
 
 	Greeting.find(function(err, greetings) {
-		//console.log('greetings :' + greetings);
-		//console.log('!greetings :' + !greetings);
-		//console.log('isEmptyObject(greetings) :' + isEmptyObject(greetings) );
 		
 //		if (!greetings) {      -  Commented because empty object returned as true
 		if (isEmptyObject(greetings)) {
